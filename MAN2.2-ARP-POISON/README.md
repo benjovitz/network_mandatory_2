@@ -6,7 +6,7 @@ sudo iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-ports 844
 
 I am running my arp posing script to poison both the router and the target.
 
-![[arp_table.png]]
+![arp_table](arp_table.png)
 
 I then setup burp to both http and https.
 
@@ -14,12 +14,12 @@ I then setup burp to both http and https.
 
 I exported the CA from burp and transferred it to my victim VM and setup as trusted CA in firefox.
 
-![[transfer_cert.png]]
+![transfer_cert](transfer_cert.png) 
 
-![[ca_setup.png]]
+![ca_setup](ca_setup.png) 
 
 I am now able to MITM http and https traffic.
 
-![[http.png]]
+![http](http.png) 
 
-![[https.png]]
+![https](https.png) 
