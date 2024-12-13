@@ -10,7 +10,7 @@ I am running my arp posing script to poison both the router and the target.
 
 I then setup burp to both http and https.
 
-![burp_setup] (burp_setup.png) 
+![burp_setup](burp_setup.png) 
 
 I exported the CA from burp and transferred it to my victim VM and setup as trusted CA in firefox.
 
