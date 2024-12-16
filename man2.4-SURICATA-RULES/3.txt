@@ -1,4 +1,6 @@
 alert tcp any any -> 192.168.238.2 any (msg:"TCP SYN flood attack detected"; flags:S; threshold: type threshold, track by_dst, count 20 , seconds 60; classtype:denial-of-service;priority:5 ;sid: 7000100; rev:1;)
+original
+
 
 alert tcp any any -> 192.168.106.2 any (msg:"TCP SYN flood attack detected"; flags:S; threshold: type threshold, track by_dst, count 20 , seconds 60; classtype:denial-of-service;priority:5 ;sid: 7000100; rev:2;)
 change to my ip range
