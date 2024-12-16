@@ -1,0 +1,1 @@
+alert http any any -> any any (msg:"DABE Possible disallowed tool: ncat"; content:"ncat.exe"; http_uri; nocase; sid:7000003; rev:2;)

@@ -1,0 +1,1 @@
+alert http $HOME_NET any -> 165.232.77.195 any (msg:"Homenet attempted login to kallas.dk/basic.php"; content:"GET"; http_method; content:"/basic.php"; http_uri; flow:to_server,established; sid:1000001; rev:1;)

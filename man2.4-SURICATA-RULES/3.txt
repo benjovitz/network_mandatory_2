@@ -1,0 +1,14 @@
+alert tcp any any -> 192.168.238.2 any (msg:"TCP SYN flood attack detected"; flags:S; threshold: type threshold, track by_dst, count 20 , seconds 60; classtype:denial-of-service;priority:5 ;sid: 7000100; rev:1;)
+
+alert tcp any any -> 192.168.106.2 any (msg:"TCP SYN flood attack detected"; flags:S; threshold: type threshold, track by_dst, count 20 , seconds 60; classtype:denial-of-service;priority:5 ;sid: 7000100; rev:2;)
+change to my ip range
+
+
+alert tcp any any -> 192.168.106.2/24 any (msg:"TCP SYN flood attack detected"; tcp.flags:S; threshold: type threshold, track by_dst, count 20 , seconds 60; classtype:denial-of-service;priority:5 ;sid: 7000100; rev:3;)
+correct usage of flags
+
+
+Will alert from any source-ip and any source port. To the router IP on any destination port. 
+classtype = predefined classtypes which we set here, for classification. This has the class DOS.
+Threshold will look at the number of packages sent and only alert when it hits that treshold.
+priority overrides the priority set by the class. 
