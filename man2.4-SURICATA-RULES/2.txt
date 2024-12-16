@@ -1,6 +1,6 @@
-alert http $HOME_NET any -> 165.232.77.195 any (msg:"Homenet attempted login to kallas.dk/basic.php"; content:"POST"; http_method; content:"/basic.php"; http_uri; flow:from_client; sid:1000001; rev:1;)
+alert http $HOME_NET any -> 165.232.77.195 any (msg:"Homenet attempted login to kallas.dk/basic.php"; content:"GET"; http_method; content:"/basic.php"; http_uri; flow:to_server; sid:1000001; rev:1;)
 
 $HOME_NET is a builtin variable from suricata.
 
-this rule checks if any from the home net tries to sign in at at kallas.dk, it checks if its a post request and /basic.php to check if the user is activevly trying to sign in. Flow just adds that the post request should come from the client trying to sign into kalls.dk
+this rule checks if any from the home net tries to sign in at at kallas.dk, it checks if its a GET request and /basic.php to check if the user is activevly trying to sign in. Flow just adds more direction to the rule and looks for a flow to the server.
 
